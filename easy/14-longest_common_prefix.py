@@ -26,23 +26,12 @@
 #     strs[i] consists of only lower-case English letters.
 
 class Solution:
-    def longestCommonPrefix(self, strs) -> str:
-        ret = ""
-        for i in range(len(strs[0])):
-            found = False
-            for str in strs:
-                if i >= len(str):
-                    return ret
-                if str[i] != strs[0][i]:
-                    return ret
-                else:
-                    found = True
-            if found:
-                ret = ret + str[i]
-        return ret
+    def isValid(self, s: str) -> bool:
+        return False 
+
 
     def main(self):
-        print(self.longestCommonPrefix(["ab", "a"]))
+        print(self.isValid())
 
 if __name__ == "__main__":
     Solution().main()
