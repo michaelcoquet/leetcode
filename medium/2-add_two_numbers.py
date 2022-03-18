@@ -43,7 +43,7 @@ class Solution:
                     prev.next = l2
                     if l2.val + 1 >= 10:
                         temp_num = l2.val + 1
-                        prev.next.val = self.getLower(temp_num)
+                        prev.next.val = temp_num % 10
                         carry = True
                     else:
                         prev.next.val = l2.val + 1
@@ -59,7 +59,7 @@ class Solution:
                     prev.next = l1
                     if l1.val + 1 >= 10:
                         temp_num = l1.val + 1
-                        prev.next.val = self.getLower(temp_num)
+                        prev.next.val = temp_num % 10
                         carry = True
                     else:
                         prev.next.val = l1.val + 1
@@ -75,7 +75,7 @@ class Solution:
                     if l1.val + l2.val + 1 >= 10:
                         temp_num = l1.val + l2.val + 1
                         prev.next = l1
-                        prev.next.val = self.getLower(temp_num)
+                        prev.next.val = temp_num % 10
                         prev = prev.next
                         carry = True
                     else:
@@ -87,7 +87,7 @@ class Solution:
                     if l1.val + l2.val >= 10:
                         temp_num = l1.val + l2.val
                         prev.next = l1
-                        prev.next.val = self.getLower(temp_num)
+                        prev.next.val = temp_num % 10
                         prev = prev.next
                         carry = True
                     else:
@@ -100,10 +100,6 @@ class Solution:
                 l2 = l2.next
 
         return prehead.next
-
-    def getLower(self, num: int) -> int:
-        digits = [int(a) for a in str(num)]
-        return digits[len(digits) - 1]
 
     def makeList(self, nums) -> ListNode:
         prehead = ListNode(-1)
